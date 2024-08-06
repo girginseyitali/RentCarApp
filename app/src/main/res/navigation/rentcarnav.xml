@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.seyitaligirgin.rentcarapp.LoginFragment"
+        android:name="com.seyitaligirgin.rentcarapp.view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.seyitaligirgin.rentcarapp.SignUpFragment"
+        android:name="com.seyitaligirgin.rentcarapp.view.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
@@ -28,11 +28,23 @@
     </fragment>
     <fragment
         android:id="@+id/firstPageFragment"
-        android:name="com.seyitaligirgin.rentcarapp.FirstPageFragment"
+        android:name="com.seyitaligirgin.rentcarapp.view.FirstPageFragment"
         android:label="fragment_first_page"
         tools:layout="@layout/fragment_first_page">
         <action
             android:id="@+id/action_firstPageFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_firstPageFragment_to_carsListFragment"
+            app:destination="@id/carsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/carsListFragment"
+        android:name="com.seyitaligirgin.rentcarapp.view.CarsListFragment"
+        android:label="fragment_cars_list"
+        tools:layout="@layout/fragment_cars_list" >
+        <action
+            android:id="@+id/action_carsListFragment_to_firstPageFragment"
+            app:destination="@id/firstPageFragment" />
     </fragment>
 </navigation>

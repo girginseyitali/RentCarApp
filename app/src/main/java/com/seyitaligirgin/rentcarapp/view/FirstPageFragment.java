@@ -1,4 +1,4 @@
-package com.seyitaligirgin.rentcarapp;
+package com.seyitaligirgin.rentcarapp.view;
 
 import android.os.Bundle;
 
@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,12 +20,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.seyitaligirgin.rentcarapp.R;
 import com.seyitaligirgin.rentcarapp.databinding.FragmentFirstPageBinding;
 
 
@@ -94,6 +93,34 @@ public class FirstPageFragment extends Fragment {
                 return true;
             }
         });
+
+        binding.rentCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rentcarCardClicked(view);
+            }
+        });
+
+        binding.campaignCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                campaignCardClicked(view);
+            }
+        });
+
+        binding.branchCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                branchCardClicked(view);
+            }
+        });
+
+        binding.carListCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                carListCardClicked(view);
+            }
+        });
     }
 
     public void getDataFromFirebase(){
@@ -121,6 +148,24 @@ public class FirstPageFragment extends Fragment {
 
     public void profileImageClick(View view){
         binding.drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    public void rentcarCardClicked(View view){
+
+    }
+
+    public void campaignCardClicked(View view){
+
+    }
+
+    public void branchCardClicked(View view){
+
+    }
+
+    public void carListCardClicked(View view){
+       NavDirections action = FirstPageFragmentDirections.actionFirstPageFragmentToCarsListFragment();
+       Navigation.findNavController(view).navigate(action);
+
     }
 
 }
