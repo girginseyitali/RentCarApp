@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_loginFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_firstPageFragment"
+            app:destination="@id/firstPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -21,6 +24,15 @@
         tools:layout="@layout/fragment_sign_up" >
         <action
             android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstPageFragment"
+        android:name="com.seyitaligirgin.rentcarapp.FirstPageFragment"
+        android:label="fragment_first_page"
+        tools:layout="@layout/fragment_first_page">
+        <action
+            android:id="@+id/action_firstPageFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
 </navigation>
