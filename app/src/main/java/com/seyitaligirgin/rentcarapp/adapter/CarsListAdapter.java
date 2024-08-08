@@ -1,17 +1,21 @@
 package com.seyitaligirgin.rentcarapp.adapter;
 
 import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.seyitaligirgin.rentcarapp.R;
 import com.seyitaligirgin.rentcarapp.model.Car;
 import com.seyitaligirgin.rentcarapp.databinding.CarsListRowBinding;
+import com.seyitaligirgin.rentcarapp.view.CarsListFragment;
 import com.seyitaligirgin.rentcarapp.view.CarsListFragmentDirections;
 import com.squareup.picasso.Picasso;
 
@@ -56,7 +60,24 @@ public class CarsListAdapter extends RecyclerView.Adapter<CarsListAdapter.CarsLi
             public void onClick(View view) {
                 String msg = "Araç: " + carsArrayList.get(position).brandName + " Model: " + carsArrayList.get(position).modelName;
                 Toast.makeText(view.getContext(), msg, Toast.LENGTH_LONG).show();
+                /*Bundle bundle = new Bundle();
+                bundle.putString("brandName", carsArrayList.get(position).brandName);
+                bundle.putString("modelName", carsArrayList.get(position).modelName);
+                bundle.putString("modelYear", carsArrayList.get(position).modelYear);*/
+
+                //CarsListFragment.
+                //Navigation.findNavController(view).navigate(action);
                 //Go to Cars details page
+
+                String brandName = carsArrayList.get(position).brandName;
+                String modelName = carsArrayList.get(position).modelName;
+                String modelYear = carsArrayList.get(position).modelYear;
+                String[] modelImages = carsArrayList.get(position).modelImages;
+
+                CarsListFragmentDirections.ActionCarsListFragmentToCarDetailsFragment action =
+                        CarsListFragmentDirections.actionCarsListFragmentToCarDetailsFragment(brandName,modelName,modelYear,modelImages);
+
+                Navigation.findNavController(view).navigate(action);
             }
         });
 

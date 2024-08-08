@@ -46,5 +46,29 @@
         <action
             android:id="@+id/action_carsListFragment_to_firstPageFragment"
             app:destination="@id/firstPageFragment" />
+        <action
+            android:id="@+id/action_carsListFragment_to_carDetailsFragment"
+            app:destination="@id/carDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/carDetailsFragment"
+        android:name="com.seyitaligirgin.rentcarapp.view.CarDetailsFragment"
+        android:label="fragment_car_details"
+        tools:layout="@layout/fragment_car_details" >
+        <action
+            android:id="@+id/action_carDetailsFragment_to_carsListFragment"
+            app:destination="@id/carsListFragment" />
+        <argument
+            android:name="brandName"
+            app:argType="string" />
+        <argument
+            android:name="modelName"
+            app:argType="string" />
+        <argument
+            android:name="modelYear"
+            app:argType="string" />
+        <argument
+            android:name="modelImages"
+            app:argType="string[]" />
     </fragment>
 </navigation>

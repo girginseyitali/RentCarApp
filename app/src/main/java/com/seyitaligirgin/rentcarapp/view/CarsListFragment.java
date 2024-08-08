@@ -30,7 +30,9 @@ import com.seyitaligirgin.rentcarapp.adapter.CarsListAdapter;
 import com.seyitaligirgin.rentcarapp.databinding.FragmentCarsListBinding;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 
 public class CarsListFragment extends Fragment {
@@ -127,9 +129,23 @@ public class CarsListFragment extends Fragment {
                        String modelName = (String) data.get("model_name");
                        String modelYear = (String) data.get("model_year");
                        String logoUrl = (String) data.get("logo_url");
+                       String[] modelImages;
+                       /*for(String key : dataKeySet){
+                           if (key.equals("car_images")){
 
-                       Car car = new Car(brandName,modelName,modelYear,logoUrl);
-                       carArrayList.add(car);
+                           }
+                       }*/
+                        for (Map.Entry e : data.entrySet()){
+                            if (e.getKey().equals("car_images")){
+                                ArrayList<String> list = (ArrayList<String>) e.getValue();
+
+                                modelImages = list.toArray(new String[0]);   //list1;
+                                Car car = new Car(brandName,modelName,modelYear,logoUrl,modelImages);
+                                carArrayList.add(car);
+                            }
+                        }
+                       //String[] modelImages = data.keySet().toArray(new String[0]);
+
                     }
                     carsListAdapter.notifyDataSetChanged();
                 }
