@@ -100,5 +100,13 @@ public class CarDetailsFragment extends Fragment {
             }
         });
 
+        binding.detailsRentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavDirections action = CarDetailsFragmentDirections.actionCarDetailsFragmentToRentFragment();
+                Navigation.findNavController(view).navigate(action);
+            }
+        });
+
     }
 }

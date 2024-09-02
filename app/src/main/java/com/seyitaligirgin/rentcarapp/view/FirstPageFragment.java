@@ -60,7 +60,6 @@ public class FirstPageFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentFirstPageBinding.inflate(inflater, container, false);
         return binding.getRoot();
-
     }
 
     @Override
@@ -159,7 +158,8 @@ public class FirstPageFragment extends Fragment {
     }
 
     public void branchCardClicked(View view){
-
+        NavDirections action = FirstPageFragmentDirections.actionFirstPageFragmentToBranchesFragment();
+        Navigation.findNavController(view).navigate(action);
     }
 
     public void carListCardClicked(View view){

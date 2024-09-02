@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_firstPageFragment_to_carsListFragment"
             app:destination="@id/carsListFragment" />
+        <action
+            android:id="@+id/action_firstPageFragment_to_branchesFragment"
+            app:destination="@id/branchesFragment" />
     </fragment>
     <fragment
         android:id="@+id/carsListFragment"
@@ -70,5 +73,18 @@
         <argument
             android:name="modelImages"
             app:argType="string[]" />
+        <action
+            android:id="@+id/action_carDetailsFragment_to_rentFragment"
+            app:destination="@id/rentFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/branchesFragment"
+        android:name="com.seyitaligirgin.rentcarapp.view.BranchesFragment"
+        android:label="fragment_branches"
+        tools:layout="@layout/fragment_branches" />
+    <fragment
+        android:id="@+id/rentFragment"
+        android:name="com.seyitaligirgin.rentcarapp.view.RentFragment"
+        android:label="fragment_rent"
+        tools:layout="@layout/fragment_rent" />
 </navigation>
